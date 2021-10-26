@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Django utilizes this to search views & models
 # New web-apps should be added here, the same as below:
 INSTALLED_APPS = [ 
+    'users.apps.UsersConfig',
     'bill_share.apps.BillShareConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -125,3 +126,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'billing-home'
