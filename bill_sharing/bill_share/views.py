@@ -31,7 +31,5 @@ def about(request):
     return render(request, 'bill_share/about.html',{'title' : 'About'})
     #return HttpResponse('<h1> Billing About</h1>')
 
-def login(request):
-    return render(request, 'bill_share/login.html',{'title' : 'Login'})
 
     
