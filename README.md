@@ -1,8 +1,9 @@
 # bill_sharing
 
 # SETUP Python Virtual Env
-https://docs.python.org/3/library/venv.html
-https://www.youtube.com/watch?v=Kg1Yvry_Ydk
+ https://docs.python.org/3/library/venv.html
+
+ https://www.youtube.com/watch?v=Kg1Yvry_Ydk
 
   TO CREATE:
   -("python3 -m venv /path/to/new/virtual/environment")
