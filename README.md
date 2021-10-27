@@ -19,4 +19,7 @@ https://tutorial.djangogirls.org/en/
 https://ehmatthes.github.io/pcc_2e/recommended_reading/django/
 # TUTORIAL VIDEOS
 https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p
-
+#
+(these seem a little shorter/more direct)
+https://www.youtube.com/watch?v=n-FTlQ7Djqc&list=PL4cUxeGkcC9ib4HsrXEYpQnTOTZE1x0uc
+https://www.youtube.com/c/TheNetNinja/playlists
