@@ -14,7 +14,8 @@ https://docs.python.org/3/library/venv.html
 # SETUP Django Project for PyCharm
 https://www.jetbrains.com/help/pycharm/creating-django-project.html
 
-
+# TUTORIAL ARTICLES
+https://tutorial.djangogirls.org/en/
 # TUTORIAL VIDEOS
 https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p
 
