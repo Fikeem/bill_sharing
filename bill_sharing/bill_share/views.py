@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Bill
 
 # Create your views here.
 
-posts = [
+bills = [
     {
         'author': 'EricF',
         'description': 'Grocery Bill',
@@ -23,7 +23,7 @@ posts = [
 ###
 def home(request):
     context = {
-        'posts': Post.objects.all()
+        'bills': Bill.objects.all()
     }
     return render(request, 'bill_share/home.html', context)
     #return HttpResponse('<h1> Billing Home </h1>')

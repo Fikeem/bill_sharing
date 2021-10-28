@@ -1,8 +1,8 @@
 {% extends "bill_share/base.html" %}
 {% block content %}
-    {% for bill in posts %}
-        <h1>{{ bill.description }}</h1>
-        <p>By {{ bill.author }} on {{bill.date_posted }}</p>
-        <p>{{ bill.cost }}</p>
+    {% for bill in bills %}
+        <h3>{{ bill.title }}</h3>
+        <p>{{ bill.content }} - ${{ bill.cost }}</p>
+        <p>By {{ bill.author }} on {{bill.date_posted }}</p>       
     {% endfor %}
 {% endblock content %}
