@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView
+    )
 from .models import Bill
 
 # Create your views here.
@@ -24,6 +28,10 @@ class BillListView(ListView):
 class BillDetailView(DetailView):
     model = Bill
     
+class BillCreateView(CreateView):
+    model = Bill
+    fields = ['title', 'content', 'cost']
+
 def about(request):
     return render(request, 'bill_share/about.html',{'title' : 'About'})
     #return HttpResponse('<h1> Billing About</h1>')
