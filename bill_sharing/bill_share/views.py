@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView
+    CreateView,
+    UpdateView
     )
 from .models import Bill
 
@@ -30,6 +31,14 @@ class BillDetailView(LoginRequiredMixin, DetailView):
     model = Bill
     
 class BillCreateView(LoginRequiredMixin, CreateView):
+    model = Bill
+    fields = ['title', 'content', 'cost']
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class BillUpdateView(LoginRequiredMixin, UpdateView):
     model = Bill
     fields = ['title', 'content', 'cost']
     
