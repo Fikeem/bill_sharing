@@ -1,24 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Bill
 
 # Create your views here.
 
-bills = [
-    {
-        'author': 'EricF',
-        'description': 'Grocery Bill',
-        'cost': '$ 212.35',
-        'date_posted': 'October 20, 2021'
-    },
-        {
-        'author': 'AnotherUserA',
-        'description': 'Name of some other item',
-        'cost': 'a currency value',
-        'date_posted': 'October 21, 2021'
-    }
-]
 ### Video Tutorial
 ## https://www.youtube.com/watch?v=qDwdMDQ8oX4
 ###
@@ -33,6 +19,10 @@ class BillListView(ListView):
     model = Bill
     template_name = 'bill_share/home.html' # <app>/<model>_<viewtype>.html
     context_object_name = 'bills'
+    ordering = ['-date_posted']
+
+class BillDetailView(DetailView):
+    model = Bill
     
 def about(request):
     return render(request, 'bill_share/about.html',{'title' : 'About'})
