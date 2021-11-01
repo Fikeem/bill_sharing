@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponse
 from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
-    UpdateView
+    UpdateView,
+    DeleteView
     )
 from .models import Bill
 
@@ -38,13 +39,23 @@ class BillCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-class BillUpdateView(LoginRequiredMixin, UpdateView):
+class BillUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Bill
     fields = ['title', 'content', 'cost']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+    def test_func(self):
+        bill = self.get_object()
+        if self.request.user == bill.author:
+            return True
+        return False
+
+class BillDeleteView(LoginRequiredMixin, DeleteView):
+    model = Bill
+    success_url = '/'
 
 def about(request):
     return render(request, 'bill_share/about.html',{'title' : 'About'})
