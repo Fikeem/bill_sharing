@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!--Favicon-->
+    <link rel="icon" href="{% static 'images/logo-3.png' %}" type="image/x-icon">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'bill_share/main.css' %}">
@@ -19,9 +22,8 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">    
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: #262730;">    
             <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'billing-home' %}">Billing</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -30,6 +32,12 @@
                         <a class="nav-item nav-link" href="{% url 'billing-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'billing-about' %}">About</a>
                       </div>
+                     <!--Navbar Center-->
+                      <div class = "navbar-center">
+                       <a class="navbar-brand mr-4" href="{% url 'billing-home' %}">
+                          <img src = "{% static '/images/logo-2.png' %}" height = "30" alt = "logo"/>
+                          </a>
+                          </div>
                       <!-- Navbar Right Side -->
                       <div class="navbar-nav">
                         {% if user.is_authenticated %}
@@ -37,7 +45,7 @@
                           <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
                           <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                          <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                          <a class="btn btn-secondary" href="{% url 'register' %}" role="button" style="background-color: #9d4edd;">Register</a>
                         {% endif %}
                     </div>
                 </div>
