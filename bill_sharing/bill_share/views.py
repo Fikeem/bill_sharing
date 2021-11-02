@@ -27,6 +27,7 @@ class BillListView(LoginRequiredMixin, ListView):
     template_name = 'bill_share/home.html' # <app>/<model>_<viewtype>.html
     context_object_name = 'bills'
     ordering = ['-date_posted']
+    paginate_by = 4
 
 class BillDetailView(LoginRequiredMixin, DetailView):
     model = Bill

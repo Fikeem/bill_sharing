@@ -23,8 +23,8 @@
         <title>Django Bill Sharing</title>
     {% endif %}
 </head>
-<body>
-  <div class="page-wrapper with-navbar-fixed-bottom with-sidebar">
+<body data-set-preferred-mode-onload="true">
+  <div class="page-wrapper">
     <header class="site-header">
       
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: #262730;">    
@@ -36,6 +36,9 @@
                       <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'billing-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'billing-about' %}">About</a>
+                        {% if user.is_authenticated %}
+                          <i><a class="nav-item nav-link" href="{% url 'bill-create' %}">Bleet-it!</a></i>  
+                        {% endif %}
                       </div>
                      <!--Navbar Center-->
                       <div class = "navbar-center">
@@ -47,7 +50,9 @@
                       <div class="navbar-nav">
                         {% if user.is_authenticated %}
                           <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>                         
+                          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                          
+                          <button class="btn btn-primary btn-sm" type="button" onclick="toggleDemo()">Click me!</button>
                         {% else %}
                           <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                           <a class="btn btn-secondary" href="{% url 'register' %}" role="button" style="background-color: #9d4edd;">Register</a>
@@ -59,10 +64,10 @@
     </header>
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 ">
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }}">
+                        <div class="text-primary alert alert-{{ message.tags }} ">
                             {{ message }}
                         </div>
                     {% endfor %}
@@ -70,22 +75,19 @@
                 {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <div class="content-section">
+                <div class="sidebar-menu">
                   <h3>Features</h3>
                   <p class='text-muted'>Coming soon..! <i><small>&trade;</small></i>
                     <ul class="list-group">
-                      <li class="list-group-item list-group-item-light">Associated Bills</li>
-                      <li class="list-group-item list-group-item-light">Group</li>
-                      <li class="list-group-item list-group-item-light">Calendars</li>
-                      <li class="list-group-item list-group-item-light">etc</li>
+                      <li class="list-group-item list-group-item-dark">Associated Bills</li>
+                      <li class="list-group-item list-group-item-dark">Group</li>
+                      <li class="list-group-item list-group-item-dark">Calendars</li>
+                      <li class="list-group-item list-group-item-dark">etc</li>
                     </ul>
                   </p>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-fixed-bottom">
-          <button class="btn btn-primary" type="button" onclick="toggleDemo()">Click me!</button>
-        </nav>
     </main>
   </div>      
 
