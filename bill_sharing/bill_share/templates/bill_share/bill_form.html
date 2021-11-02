@@ -1,0 +1,18 @@
+{% extends "bill_share/base.html" %}
+{% block content %}
+    <h1>Sign-up</h1>
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">New Bill</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Bill</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+        </div>
+    </div>
+{% endblock content %}
