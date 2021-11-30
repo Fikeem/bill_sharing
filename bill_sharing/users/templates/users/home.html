@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for bill in bills %}
+        <h3>{{ bill.title }}</h3>
+        <p>{{ bill.content }} - ${{ bill.cost }}</p>
+        <p>By {{ bill.author }} on {{bill.date_posted }}</p>       
+    {% endfor %}
+{% endblock content %}
