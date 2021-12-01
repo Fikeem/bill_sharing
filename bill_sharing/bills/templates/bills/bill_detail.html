@@ -6,6 +6,19 @@
             <div class="object-metadata">
                 <a class="mr-2" href="#">{{ object.author }}</a>
                 <small class="text-muted">{{ object.date_posted|date:"F d, Y"}}</small>
+                <br>
+                <p class="bill-title row">{{ object.title }}</p>
+                <div class="row">
+                <p class="bill-title text-danger">${{ object.cost }}</p>
+                </div>
+                
+                <p class="bill-content row">{{ object.content }} </p> 
+                {% if object.author == user %}
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bill-update' object.id %}">Update</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bill-delete' object.id %}">Delete</a>
+                {% endif %}
+            </div>
+
             </div>
             <h2 class="bill-title">{{ object.title }}</h2>
             <br>
