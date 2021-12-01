@@ -30,6 +30,7 @@ urlpatterns = [
     path('', include('bills.urls')),
 ]
 
-
+#attempted fix for css 404 error https://stackoverflow.com/a/65361237
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
