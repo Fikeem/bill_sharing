@@ -11,18 +11,13 @@
                 <div class="row">
                 <p class="bill-title text-danger">${{ object.cost }}</p>
                 </div>
-                
+
                 <p class="bill-content row">{{ object.content }} </p> 
                 {% if object.author == user %}
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bill-update' object.id %}">Update</a>
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bill-delete' object.id %}">Delete</a>
                 {% endif %}
             </div>
-
-            </div>
-            <h2 class="bill-title">{{ object.title }}</h2>
-            <br>
-            <p class="bill-content">{{ object.content }} - ${{ object.cost }}</p> 
         </div>    
     </article> 
 {% endblock content %}
