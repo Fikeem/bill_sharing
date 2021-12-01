@@ -1,8 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
-    {% for bill in bills %}
-        <h3>{{ bill.title }}</h3>
-        <p>{{ bill.content }} - ${{ bill.cost }}</p>
-        <p>By {{ bill.author }} on {{bill.date_posted }}</p>       
+{% for bill in bills %}<br>
+    <div class="container-fluid row">
+        
+        <h3 class="text-extra-letter-spacing font-weight-semi-bold">{{ bill.title }}</h3>
+        <p class="text-danger col-sm">${{ bill.cost }}</p>
+        <p>By {{ bill.author }} on {{bill.date_posted }}</p>
+        <div class="col-sm"> <!-- text-right = text-align: right -->
+            <a class="btn btn-info btn-sm" href="{% url 'bill-detail' bill.id %}" role="button">View details</a>
+        </div>
+    </div>   
     {% endfor %}
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_previous %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+    {% endif %}
+
+    {% endif %}
 {% endblock content %}
