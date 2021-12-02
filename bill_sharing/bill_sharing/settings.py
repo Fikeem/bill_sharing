@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # New web-apps should be added here, the same as below:
 INSTALLED_APPS = [ 
     'users.apps.UsersConfig',
+    'groups.apps.GroupsConfig',
     'bills.apps.BillsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
